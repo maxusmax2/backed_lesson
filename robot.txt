@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: Article.php
+Disallow: Articles.php
+Disallow: *?*
