@@ -1,0 +1,56 @@
+.titles-content
+{
+	display: flex;
+	justify-content: center;
+
+}
+ul.titles
+{
+	flex-direction: column;
+	list-style-type: none;
+	display: flex;
+	justify-content: space-between;
+	/*background-color: #F5f5f5 ;*/
+}
+
+ul.titles>li
+{
+	margin-bottom: 5vh;
+	width: 50vw;
+	height: 20vh;
+	background: linear-gradient(to top right ,white ,#eee);
+	border-radius: 1%;
+	text-align: center;
+	box-shadow: 0px 0px 6px 1px blue;
+}
+
+ul.titles>li>a
+{
+	
+	font-size: 2vw;
+	text-decoration: none;
+	color: red;
+}
+ul.titles>li>a:visited
+{
+	color: green;
+}
+.comment-body
+{
+	border : 2px blue;
+}
+.date-comment
+{
+	float: right;
+}
+.comments
+{
+	border: aqua;
+	width: 25vw;
+}
+.comment
+{
+	border: 2px solid black;
+	width: 20vw;
+	margin-top: 5vh;
+}

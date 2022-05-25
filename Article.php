@@ -1,12 +1,12 @@
 <?php
 	//Класс определяющий структуру статьи
 	class Article {
-		public $header;
+		public $title;
 		public $content;
 
-		public function __construct($header,$content)
+		public function __construct($title,$content)
 		{
-			$this->header = $header;
+			$this->title = $title;
 			$this->content = $content; 
 		}
 	}

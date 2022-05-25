@@ -1,29 +1,28 @@
 <?php
-	include "Articles.php";
 	
-	// Переменная которая содержит HTML-код всех заголовков 
-	$headers = "";
+	include "ArticlesDBConector.php";
+	
+	$db_conector = new ArticlesDBConector;
 
-	// счетчик индекса статьи в массиве
-	$i = 0;
-
+	
+	$Articles = $db_conector->getAllArticles();
+	$articles = '';
 	//наполняет список заголовками статей
-	foreach($Articles as $header){
-		$headers .= "<li> <a href = getContent.php?content=$i>". $header->header . "</a></li>";
-		$i++;
+	foreach($Articles as $key=>$article){
+	$articles .= "<li> <a href = getContent.php?content=$key>". $article['title']."</a></li>";
 	} 
-	//Вывод страницы
-	print "
-		<html>
-		<head>
-			<title>Main</title>
-		<head>
-		<body>
-			
-			<ul>
-			$headers
-			</ul>
-		</body>
-		<html> 
-		";
 ?>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/title-block.css">
+		<title>Main</title>
+	<head>
+
+	<body>
+	<div class = "titles-content">
+		<ul class = "titles">	
+			<?php echo $articles ?> 
+		</ul>
+	</div>
+	</body>
+<html>
