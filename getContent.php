@@ -1,24 +1,25 @@
 <?php
 	
 	include "ArticlesDBConector.php";
-	
+	//получение информации от бд о статьях
 	$db_conector = new ArticlesDBConector;
-	
 	$Article = $db_conector->getAllArticles();
 
-	
-
 	$content = "";
-	$commentsHTML = " ";
+	$commentsHTML = "";
 	// Обработка запроса на получения нужной статьи
 	if ('GET' == $_SERVER['REQUEST_METHOD'])
 	{
-		$Comments = $db_conector->getCommentsForArticles($_GET["content"]+1);
-		$content .= "<h1>" . $Article[$_GET["content"]]['title'] . "</h1>";    
-		$content .= $Article[$_GET["content"]]['content'];
+		//получение информации от бд о комментариях
+		$Comments = $db_conector->getCommentsForArticles($_GET["content"];
+
+		$content .= "<h1>" . $Article[$_GET["content"]]['title'] . "</h1>".$Article[$_GET["content"]]['content'];
+
 		if ($Comments)
 		{
+			
 			$commentsHTML = "<div class = 'comments '> <h2> Ваши комментарии </h2> ";
+			//Генерация HTML-кода комментария
 			foreach($Comments as $comment_info)
 			{
 				$commentsHTML .= "
@@ -34,36 +35,44 @@
 			}
 			$commentsHTML .= "</div>";
 		}
-		printHTML($content, $commentsHTML);
-	}
-	else
-	{
-		if('POST' == $_SERVER['REQUEST_METHOD'])
-		{
-			$time = date('d.m.Y H:i', time());
 
-			if(isset($_POST['author'])&&isset($_POST['content'])&&isset($_POST['id']))
-			{
-				print $db_conector->addComments($_POST['author'],$_POST['content'],$time,$_POST['id']);
-				
-			print "
-				<div class='comment'>
-				<h3>".$_POST['author']. "</h3>
-				<hr>
-				<div class= 'comment-body'>".$_POST['content']."
-				</div>
-				<hr>
-				<p class = 'date-comment'>$time</p>
-				<p>дата:</p>
-			</div>";
-			}
+		printRequest($content, $commentsHTML);
+	}
+
+	elseif('POST' == $_SERVER['REQUEST_METHOD'])
+	{
+		$time = date('d.m.Y H:i', time());
+
+		if(formIsValidate())
+		{
+			$db_conector->addComments($_POST['author'],$_POST['content'],$time,$_POST['id']);
+			
+			$author = $_POST['author'];
+			$content = $_POST['content'];
+
+			print <<<HTMLCOMMENT
+			<div class='comment'>
+			<h3> $author </h3>
+			<hr>
+			<div class= 'comment-body'>$content
+			</div>
+			<hr>
+			<p class = 'date-comment'>$time</p>
+			<p>дата:</p>
+		</div>
+HTMLCOMMENT
 		}
 	}
+
+function formIsValidate()
+{
+	return isset($_POST['author'])&&isset($_POST['content']))
+}
 
 ?>
 
 <?php 
-function printHTML($content,$commentsHTML  )
+function printRequest($content,$commentsHTML):string
 {
 	print 
 		<<<HTMLDOCK
