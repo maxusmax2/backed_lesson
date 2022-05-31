@@ -14,7 +14,8 @@ My_home_work_for_backend
   1. Download mysql from official site oracle
 ##  connect nginx, php and mysql 
   1. Create index.php on nginx\html directory
-![image](https://user-images.githubusercontent.com/79931339/171199165-3ab84d21-bfe9-4aee-a30d-953cd8b3352e.png)
+
+	![image](https://user-images.githubusercontent.com/79931339/171199165-3ab84d21-bfe9-4aee-a30d-953cd8b3352e.png)
   2. Open cmd and write start /b nginx
                   start /b php\php-cgi.exe -b 127.0.0.1:9000 -c c:\nginx\php\php.ini
   3. Open localhost and see request
