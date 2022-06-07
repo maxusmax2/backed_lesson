@@ -11,7 +11,7 @@
 			return $articlesSort;
 		}
 
-		protected function sortArticlesByPopularity(array $Articles):array
+		protected static function sortArticlesByPopularity(array $Articles):array
 		{
 			$articlesSort = $Articles; 
 			for ($i = 0; $i < count($articlesSort )-1; $i++)

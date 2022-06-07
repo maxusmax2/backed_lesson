@@ -81,7 +81,7 @@
 			return $commentMenu;
 		}
 
-		protected function getArticleBody(Article $Article)
+		protected static function getArticleBody(Article $Article)
 		{
 			
 			return <<<Article

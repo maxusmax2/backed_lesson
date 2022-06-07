@@ -7,12 +7,12 @@
 			return self::validateAuthorComment($author) && self::validateContentComment($content);
 		}
 
-		protected function validateAuthorComment(string $author):bool
+		protected static function validateAuthorComment(string $author):bool
 		{
 			return isset($author) && strlen($author) > 4;
 		}
 
-		protected function validateContentComment(string $content):bool
+		protected static function validateContentComment(string $content):bool
 		{
 			return isset($content) && strlen($content) > 3;
 		}
