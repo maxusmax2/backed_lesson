@@ -2,7 +2,7 @@
 	//Cтатический класс помогающий работать с html-шаблонами
 	class HTMLHelper
 	{
-		public static function getHeader()
+		public static function getHeader():string
 		{
 			return <<<Header
 			<header class="header__container">
@@ -59,8 +59,28 @@
 	Article;
 		}
 
+		public static function getDonateBody():string
+		{
+			return <<<Donate
+			<h2> Помощь автору  </h2>
+			<hr>
+			<select class = "donate_valute" >
+			<option disabled>Выберите Валюту</option>
+			<option value = "RUB" selected>Рубль</option>
+			<option value = "USD">Доллар</option>
+			<option value = "EUR">Евро</option>
+			<option value = "CNY">Юань</option>
+			</select>
 
-		public static function getCommentMenu(array $comments)
+			<input type = "number" class = "valute_value">
+			<input type = 'button' class = 'donate' value='Задонатить'>
+			<hr>
+
+Donate;
+		}
+
+
+		public static function getCommentMenu(array $comments):string
 		{
 			$commentMenu = <<<Menu
 			<section class="comment__container">
@@ -81,7 +101,7 @@
 			return $commentMenu;
 		}
 
-		protected static function getArticleBody(Article $Article)
+		protected static function getArticleBody(Article $Article):string
 		{
 			
 			return <<<Article
@@ -99,7 +119,7 @@
 	Article;
 		}
 
-		public static function getCommentCard($comment)
+		public static function getCommentCard($comment):string
 		{
 			return <<<Comment
 			<div class="comment__item">

@@ -41,7 +41,7 @@
 		$header = HTMLHelper::getHeader();
 		$articleHTML = HTMLHelper::getArticle($article);
 		$commentMenuHTML = HTMLHelper::getCommentMenu($comments ?? []);
-
+		$donate = HTMLHelper::getDonateBody();
 		print <<< HTMLResponce
 		<html>
 
@@ -54,6 +54,7 @@
 		<body>
 			$header
 			$articleHTML
+			$donate
 			$commentMenuHTML
 		</body>
 
@@ -65,14 +66,15 @@ HTMLResponce;
 	else if('POST' == $_SERVER['REQUEST_METHOD'])
 	{
 		$time = date('d.m.Y H:i', time());
-
-		$author = $_POST['author'];
-		$content = $_POST['content'];
+		$requestData = json_decode(file_get_contents('php://input'),true);
+		$author = $requestData['author'];
+		$content = $requestData['content'];
+		$id = $requestData['id'];
 
 		if(Validator::validateComment($author, $content))
 		{
 
-			$db_connector->addComments($author,$content,$time,$_POST['id']);
+			$db_connector->addComments($author,$content,$time,$id);
 			
 			$comment = new Comment($author, $time, $content );
 	
