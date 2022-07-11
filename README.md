@@ -67,10 +67,5 @@ sudo service php7.4-fpm start localhost:9000
 На ней  можно опробывать три хранилища cookie, sessionStorage, localStorage.
 с помощью fake-api которое я нашел по первой ссылке https://jsonplaceholder.typicode.com/, 
 я проверил работу хранилищей.
-# Задание 9
-Действуя по гайду  я установил composer
-и через композер создал проект.
-результат запуска измененного![Снимок экрана от 2022-07-06 18-14-04](https://user-images.githubusercontent.com/79931339/177584553-a3b482e5-ba35-4d87-bfdc-b80725318b99.png)
- проекта
 
   
