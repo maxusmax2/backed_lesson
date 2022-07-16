@@ -82,7 +82,7 @@ sudo service php7.4-fpm start localhost:9000
 5.добавил csrf токен
 6.добавил логер в дебагбар
 7.Создал пост с повторяющимся названием и в логе выдалась ошибка
-file:///home/maxusmax/%D0%98%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%20%D0%BE%D1%82%202022-07-16%2019-33-42.png![изображение](https://user-images.githubusercontent.com/79931339/179363881-30d30b11-8dcd-4205-9e6b-bbffc7d1de67.png)
+![изображение](https://user-images.githubusercontent.com/79931339/179363881-30d30b11-8dcd-4205-9e6b-bbffc7d1de67.png)
 
 
 
