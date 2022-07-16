@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
-use phpDocumentor\Reflection\PseudoTypes\True_;
 
 return [
 
@@ -42,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', True),
+    'debug' => (bool) env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
