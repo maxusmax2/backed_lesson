@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StorePostRequest;
 
 
 class PostController extends Controller
@@ -12,9 +13,12 @@ class PostController extends Controller
         return view('form');
     }
 
-    public function store(Request $request){
+    public function store(StorePostRequest $request){
         DB::table('post')->insert([[
-            'title'=>$request->input("title"),'body'=>$request->input("body")]]);
+            'title'=>$request->input("title"),
+            'body'=>$request->input("body"),
+            'image'=>mb_substr($request->photo->store('/public/images'),strlen('public/'))],
+        ]);
         return view ('form');
     }
 }
