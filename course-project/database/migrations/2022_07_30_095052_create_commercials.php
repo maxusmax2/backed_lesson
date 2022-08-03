@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('commercials', function (Blueprint $table) {
             $table->id();
 
+            $table->string('phone_number');
             $table->longText('description');
 
             $table->integer('cost');

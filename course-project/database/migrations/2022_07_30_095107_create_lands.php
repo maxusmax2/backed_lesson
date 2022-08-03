@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('lands', function (Blueprint $table) {
             $table->id();
+            $table->string('phone_number');
 
             $table->longText('description');
 
