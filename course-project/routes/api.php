@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CompareController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,19 +18,17 @@ use App\Http\Controllers\CompareController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('/favorite',[FavoriteController::class , 'getFavorite']);
 Route::get('/compare',[CompareController::class,'getCompare']);
-
+Route::get('/favorite',[FavoriteController::class,'getFavorite']);
 Route::get('/catalog/sale-{buildType}/{id}',[DetailController::class,'getDetail']);
-Route::group([],function(){
+
+Route::middleware('auth:api')->group(function(){
 
     Route::post('/catalog/sale-{buildType}/{id}/append-favorite',[FavoriteController::class,'appendFavorite']);
     Route::post('/catalog/sale-{buildType}/{id}/delete-favorite',[FavoriteController::class,'deleteFavorite']);
+    Route::get('/favorite',[FavoriteController::class,'getFavorite']);
 
     Route::post('/catalog/sale-{buildType}/{id}/append-compare',[CompareController::class,'appendCompare']);
     Route::post('/catalog/sale-{buildType}/{id}/delete-compare',[CompareController::class,'deleteCompare']);
+    Route::get('/compare',[CompareController::class,'getCompare']);
 });
