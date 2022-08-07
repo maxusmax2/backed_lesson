@@ -6,7 +6,7 @@ use App\Models\Apartment;
 use App\Models\Commercial;
 use App\Models\Cottage;
 use App\Models\Land;
-use Illuminate\Http\Request;
+
 use App\Models\Room;
 use Illuminate\Support\Facades\Cache;
 
@@ -23,6 +23,9 @@ class DetailController extends Controller
         switch ($buildType){
 
             case 'rooms':
+                if(Cache::tags($buildType)->has($id)){
+                    return Cache::tags($buildType)->get($id);
+                }
                 $buildObject = Room::find($id);
                 $buildImages = $buildObject
                     ->join('room_images','rooms.id','=','room_images.build_id')
@@ -34,6 +37,9 @@ class DetailController extends Controller
                 return $responce;
 
             case 'apartments':
+                if(Cache::tags($buildType)->has($id)){
+                    return Cache::tags($buildType)->get($id);
+                }
 
                 $buildObject = Apartment::find($id);
                 $buildImages = $buildObject
@@ -46,7 +52,9 @@ class DetailController extends Controller
                 return $responce;
 
             case 'land':
-
+                if(Cache::tags($buildType)->has($id)){
+                    return Cache::tags($buildType)->get($id);
+                }
                 $buildObject = Land::find($id);
                 $buildImages = $buildObject
                     ->join('land_images','lands.id','=','land_images.build_id')
