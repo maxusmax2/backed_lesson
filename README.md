@@ -68,4 +68,10 @@ sudo service php7.4-fpm start localhost:9000
 с помощью fake-api которое я нашел по первой ссылке https://jsonplaceholder.typicode.com/, 
 я проверил работу хранилищей.
 
+# Задание 9
+Действуя по гайду  я установил composer
+и через композер создал проект.
+результат запуска измененного проекта![Снимок экрана от 2022-07-06 18-14-04](https://user-images.githubusercontent.com/79931339/177584553-a3b482e5-ba35-4d87-bfdc-b80725318b99.png)
+Я изменил welcome.blade.php написав там Hello world
+
   
